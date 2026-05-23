@@ -1,0 +1,70 @@
+Starting Verification...
+[INFO] Starting AI dev agent on 64d2d5a64ac7
+[INFO] Detected distro=ubuntu codename=noble family=ubuntu arch=x86_64 kernel=6.12.76-linuxkit ram=3.6GB
+[INFO] Selected profile: server
+[INFO] GPU: none 
+[INFO] No NVIDIA GPU detected; skip CUDA/NVIDIA driver changes.
+[INFO] [Cleanup] Removing conflicting GPG keys and source lists...
+[DRY ] sudo [DRY ] apt-get [DRY ] update [DRY ] -y 
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] ca-certificates [DRY ] curl [DRY ] wget [DRY ] gnupg [DRY ] lsb-release [DRY ] apt-transport-https [DRY ] software-properties-common [DRY ] file [DRY ] unzip [DRY ] zip [DRY ] tar [DRY ] xz-utils [DRY ] jq [DRY ] yq [DRY ] git [DRY ] build-essential [DRY ] pkg-config [DRY ] make [DRY ] cmake [DRY ] ninja-build [DRY ] gcc [DRY ] g++ [DRY ] python3 [DRY ] python3-pip [DRY ] python3-venv [DRY ] python3-dev [DRY ] pipx [DRY ] direnv [DRY ] shellcheck [DRY ] xclip [DRY ] xsel [DRY ] htop [DRY ] tmux [DRY ] tree [DRY ] ripgrep [DRY ] fd-find [DRY ] fzf [DRY ] silversearcher-ag 
+[INFO] [Docker] Engine + Compose + Buildx
+[DRY ] sudo [DRY ] install [DRY ] -m [DRY ] 0755 [DRY ] -d [DRY ] /etc/apt/keyrings 
+[DRY ] curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+[DRY ] echo "deb [arch=x86_64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+[DRY ] sudo [DRY ] chmod [DRY ] a+r [DRY ] /etc/apt/keyrings/docker.gpg 
+[DRY ] sudo [DRY ] apt-get [DRY ] update [DRY ] -y 
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] docker-ce [DRY ] docker-ce-cli [DRY ] containerd.io [DRY ] docker-buildx-plugin [DRY ] docker-compose-plugin 
+[DRY ] sudo [DRY ] usermod [DRY ] -aG [DRY ] docker [DRY ] tester 
+[INFO] [Node] NVM + Node LTS + pnpm + bun
+[DRY ] curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+[WARN] nvm not available in current shell; using system node if present
+[DRY ] npm [DRY ] config [DRY ] set [DRY ] prefix [DRY ] /home/tester/.local/npm-global 
+[DRY ] npm [DRY ] install [DRY ] -g [DRY ] pnpm [DRY ] bun 
+[INFO] [Python] uv + poetry + pipx
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] pipx 
+[DRY ] pipx [DRY ] ensurepath 
+[DRY ] curl -LsSf https://astral.sh/uv/install.sh | sh
+[INFO] [Editors] VS Code
+[DRY ] wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/ms-vscode.gpg >/dev/null
+[DRY ] echo "deb [arch=x86_64 signed-by=/usr/share/keyrings/ms-vscode.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list >/dev/null
+[DRY ] sudo [DRY ] apt-get [DRY ] update [DRY ] -y 
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] code 
+[INFO] [GitHub CLI] gh
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] gh 
+[INFO] [GitLab CLI] glab
+sudo: snap: command not found
+[INFO] [1Password CLI] op
+[INFO] [Cloudflare] Wrangler
+[DRY ] npm [DRY ] config [DRY ] set [DRY ] prefix [DRY ] /home/tester/.local/npm-global 
+[DRY ] npm [DRY ] install [DRY ] -g [DRY ] wrangler 
+[INFO] [Ollama] runtime only
+[WARN] Would install Ollama from official Linux installer
+[INFO] [AI tools] Claude + Perplexity + Cloudflare env scaffolding
+[INFO] [Agents] Bootstrapping Atlas, Chronos, Sentinel, Forge, and Aegis
+./scripts/install/bootstrap-agents.sh: line 5: systemctl: command not found
+./scripts/install/bootstrap-agents.sh: line 6: systemctl: command not found
+[INFO] Sub-agents (Atlas, Chronos, Sentinel, Forge, Aegis, Vault) bootstrapped.
+[INFO] [Ubuntu Pro] Preparing client
+[DRY ] sudo [DRY ] DEBIAN_FRONTEND=noninteractive [DRY ] apt-get [DRY ] install [DRY ] -y [DRY ] ubuntu-pro-client 
+[WARN] Would run Ubuntu Pro browser-based attach flow or token-based attach
+[INFO] [Cloudflare] Browser login + AI Gateway guidance
+[WARN] Would run wrangler login and then prompt for AI Gateway setup in browser
+[INFO] Completed. Report: /home/tester/.local/share/ai-dev-agent/report.txt
+[INFO] Re-login may be required for docker group and updated shell PATH entries.
+Running Vitest...
+
+> my-gemini-cli-project@1.0.0 test
+> vitest run
+
+
+ RUN  v1.6.1 /home/tester/project
+
+ ✓ tests/ts/hello.test.ts  (1 test) 7ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  11:51:33
+   Duration  1.88s (transform 132ms, setup 0ms, collect 77ms, tests 7ms, environment 1ms, prepare 484ms)
+
+Running Pytest...
+bash: line 1: pytest: command not found

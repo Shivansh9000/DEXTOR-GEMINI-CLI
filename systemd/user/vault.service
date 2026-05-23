@@ -1,0 +1,10 @@
+[Unit]
+Description=Vault Guard - Monitors 1Password session
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/vault-guard.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

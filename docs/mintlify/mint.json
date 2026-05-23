@@ -1,0 +1,40 @@
+{
+  "name": "DEXTOR-GEMINI-CLI",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@example.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/your-username/DEXTOR-GEMINI-CLI"
+  },
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": ["introduction", "essentials/installation", "essentials/configuration"]
+    },
+    {
+      "group": "The Guards (Agents)",
+      "pages": ["agents/overview", "agents/sentinel", "agents/forge", "agents/aegis", "agents/atlas", "agents/chronos", "agents/vault"]
+    },
+    {
+      "group": "Guides",
+      "pages": ["guides/plain-english", "guides/onepassword", "guides/cloudflare", "guides/ai-hub", "guides/box-backup", "guides/oracle-bot"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/your-username/DEXTOR-GEMINI-CLI"
+  }
+}

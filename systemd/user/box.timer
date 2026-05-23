@@ -1,0 +1,9 @@
+[Unit]
+Description=Run Box Guard Backup Daily
+
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target

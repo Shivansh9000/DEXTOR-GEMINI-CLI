@@ -1,0 +1,10 @@
+[Unit]
+Description=Atlas Debugger - Checks dependencies and health
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/atlas-debugger.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

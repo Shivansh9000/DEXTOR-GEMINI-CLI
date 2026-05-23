@@ -1,0 +1,10 @@
+[Unit]
+Description=Aegis Cloudflare Guard - Monitors Network Connectivity
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/aegis-cloudflare-guard.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

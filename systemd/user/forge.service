@@ -1,0 +1,10 @@
+[Unit]
+Description=Forge Git Guard - Monitors Git Auth and Conflicts
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/forge-lifecycle.sh all
+Type=oneshot
+
+[Install]
+WantedBy=default.target

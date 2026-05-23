@@ -1,0 +1,10 @@
+[Unit]
+Description=Chronos Upgrader - Daily updates and upgrades
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/chronos-upgrader.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

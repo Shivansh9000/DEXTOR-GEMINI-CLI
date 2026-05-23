@@ -1,0 +1,10 @@
+[Unit]
+Description=Sentinel Config Guard - Monitors Docker and Paths
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/sentinel-config-guard.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

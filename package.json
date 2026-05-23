@@ -1,0 +1,26 @@
+{
+  "name": "dextor-gemini-cli",
+  "version": "1.0.0",
+  "description": "Agent-optimized polyglot development environment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint 'src/ts/**/*.ts' 'tests/ts/**/*.ts'",
+    "format": "prettier --write 'src/ts/**/*.ts' 'tests/ts/**/*.ts'",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "discord.js": "^14.14.0",
+    "dotenv": "^16.4.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.22.3",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

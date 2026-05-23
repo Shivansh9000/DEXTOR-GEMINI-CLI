@@ -1,0 +1,10 @@
+[Unit]
+Description=Box Guard - Project Backup Agent
+After=network.target
+
+[Service]
+ExecStart=/bin/bash %h/Projects/my-gemini-cli-project/scripts/agents/box-backup.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

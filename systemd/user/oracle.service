@@ -1,0 +1,13 @@
+[Unit]
+Description=Oracle Discord Bot - Remote Control for AI Dev Env
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/my-gemini-cli-project
+ExecStart=%h/.local/npm-global/bin/npx tsx src/ts/oracle-bot/index.ts
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

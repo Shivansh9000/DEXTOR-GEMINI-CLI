@@ -1,0 +1,41 @@
+FROM ubuntu:24.04
+
+# Avoid prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install basic dependencies for the dry-run
+RUN apt-get update && apt-get install -y \
+    curl \
+    sudo \
+    git \
+    python3 \
+    python3-pip \
+    python3-venv \
+    lsb-release \
+    gnupg \
+    jq \
+    pciutils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user
+RUN useradd -m -s /bin/bash tester && echo "tester ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER tester
+WORKDIR /home/tester/project
+
+# Copy project files
+COPY --chown=tester:tester . .
+
+# Setup node environment for tests (will be handled by dry-run or manual install in container)
+# Since it's a dry-run for setup, we might need real node/npm for running the ACTUAL tests.
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - && \
+    sudo apt-get install -y nodejs && \
+    sudo npm install -g pnpm bun
+
+# Pre-install test dependencies so we can run them
+RUN npm install && pip install -r requirements.txt --break-system-packages
+
+# Create placeholder for 1password op CLI to avoid failure in dry-run if it checks binary
+RUN sudo touch /usr/local/bin/op && sudo chmod +x /usr/local/bin/op
+
+CMD ["bash", "-c", "echo 'Starting Verification...' && ./scripts/install/ai-dev-agent.sh --dry-run --mode=full-auto && echo 'Running Vitest...' && npm test && echo 'Running Pytest...' && PYTHONPATH=. python3 -m pytest && echo 'Verification Complete.'"]
