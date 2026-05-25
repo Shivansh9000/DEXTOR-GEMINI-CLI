@@ -23,15 +23,15 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "essentials/installation", "essentials/configuration"]
+      "pages": ["introduction", "essentials/installation"]
     },
     {
       "group": "The Guards (Agents)",
-      "pages": ["agents/overview", "agents/sentinel", "agents/forge", "agents/aegis", "agents/atlas", "agents/chronos", "agents/vault"]
+      "pages": ["agents/overview"]
     },
     {
       "group": "Guides",
-      "pages": ["guides/plain-english", "guides/onepassword", "guides/cloudflare", "guides/ai-hub", "guides/box-backup", "guides/oracle-bot"]
+      "pages": ["guides/plain-english", "guides/ai-hub", "guides/box-backup", "guides/oracle-bot"]
     }
   ],
   "footerSocials": {
